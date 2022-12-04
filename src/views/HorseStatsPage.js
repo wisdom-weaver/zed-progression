@@ -6,7 +6,7 @@ import { useAppContext } from "../App.js";
 import { useQueries } from "react-query";
 import { q_hdata_dur } from "../utils/queries.js";
 import { useMemo } from "react";
-import { dec, getv, jstr } from "../utils/utils.js";
+import { dec, getv, iso, jstr } from "../utils/utils.js";
 import {
   Area,
   AreaChart,
@@ -30,8 +30,8 @@ function HorseStatsPage() {
     return parseInt(params.hid);
   }, [params]);
 
-  const st = "2022-11-01T00:00:00Z";
-  const ed = "2022-11-30T00:00:00Z";
+  const ed = iso().slice(0, 10) + "T00:00:00Z";
+  const st = moment(ed).add(-30, "days").toISOString();
 
   const [qhdata_dur] = useQueries([q_hdata_dur({ hid, st, ed })]);
 
@@ -98,7 +98,6 @@ const HStatsView = () => {
 const SpeeedsChart = ({ chart_data }) => {
   return (
     <AreaChart
-
       width={800}
       height={400}
       data={chart_data}
