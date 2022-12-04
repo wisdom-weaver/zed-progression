@@ -1,0 +1,810 @@
+[
+  {
+      "cg": "Neptune",
+      "rg": "s",
+      "r": 5,
+      "color": "Aggressive Azure",
+      "hex": "#027DFF",
+      "cid": "aggressive_azure"
+  },
+  {
+      "cg": "Neptune",
+      "rg": "r",
+      "r": 7,
+      "color": "Alice Blue",
+      "hex": "#F0F8FF",
+      "cid": "alice_blue"
+  },
+  {
+      "cg": "Neptune",
+      "rg": "r",
+      "r": 7,
+      "color": "Cadet Blue",
+      "hex": "#5F9EA0",
+      "cid": "cadet_blue"
+  },
+  {
+      "cg": "Neptune",
+      "rg": "r",
+      "r": 7,
+      "color": "Powder Blue",
+      "hex": "#B0E0E6",
+      "cid": "powder_blue"
+  },
+  {
+      "cg": "Neptune",
+      "rg": "r",
+      "r": 7,
+      "color": "Royal Blue",
+      "hex": "#4169E1",
+      "cid": "royal_blue"
+  },
+  {
+      "cg": "Neptune",
+      "rg": "r",
+      "r": 8,
+      "color": "Absolute Zero",
+      "hex": "#0048BA",
+      "cid": "absolute_zero"
+  },
+  {
+      "cg": "Neptune",
+      "rg": "c",
+      "r": 9,
+      "color": "Air Superiority Blue",
+      "hex": "#72A0C1",
+      "cid": "air_superiority_blue"
+  },
+  {
+      "cg": "Neptune",
+      "rg": "c",
+      "r": 9,
+      "color": "Azure Mist",
+      "hex": "#F0FFFF",
+      "cid": "azure_mist"
+  },
+  {
+      "cg": "Neptune",
+      "rg": "c",
+      "r": 9,
+      "color": "Cosmic Cobalt",
+      "hex": "#2E2D88",
+      "cid": "cosmic_cobalt"
+  },
+  {
+      "cg": "Neptune",
+      "rg": "c",
+      "r": 9,
+      "color": "Azure",
+      "hex": "#007FFF",
+      "cid": "azure"
+  },
+  {
+      "cg": "Neptune",
+      "rg": "c",
+      "r": 9,
+      "color": "Bondi Blue",
+      "hex": "#0095B6",
+      "cid": "bondi_blue"
+  },
+  {
+      "cg": "Neptune",
+      "rg": "c",
+      "r": 9,
+      "color": "Bleu De France",
+      "hex": "#318CE7",
+      "cid": "bleu_de_france"
+  },
+  {
+      "cg": "Neptune",
+      "rg": "c",
+      "r": 9,
+      "color": "Celestial Blue",
+      "hex": "#4997D0",
+      "cid": "celestial_blue"
+  },
+  {
+      "cg": "Neptune",
+      "rg": "c",
+      "r": 9,
+      "color": "Cerulean Frost",
+      "hex": "#6D9BC3",
+      "cid": "cerulean_frost"
+  },
+  {
+      "cg": "Neptune",
+      "rg": "c",
+      "r": 9,
+      "color": "Egyptian Blue",
+      "hex": "#1034A6",
+      "cid": "egyptian_blue"
+  },
+  {
+      "cg": "Neptune",
+      "rg": "c",
+      "r": 9,
+      "color": "Bright Cerulean",
+      "hex": "#1DACD6",
+      "cid": "bright_cerulean"
+  },
+  {
+      "cg": "Earth",
+      "rg": "s",
+      "r": 5,
+      "color": "Honeydew",
+      "hex": "#E0EEE0",
+      "cid": "honeydew"
+  },
+  {
+      "cg": "Earth",
+      "rg": "r",
+      "r": 7,
+      "color": "Rosy Brown",
+      "hex": "#BC8F8F",
+      "cid": "rosy_brown"
+  },
+  {
+      "cg": "Earth",
+      "rg": "r",
+      "r": 8,
+      "color": "Antique Brass",
+      "hex": "#CD9575",
+      "cid": "antique_brass"
+  },
+  {
+      "cg": "Earth",
+      "rg": "c",
+      "r": 10,
+      "color": "Brown Sugar",
+      "hex": "#AF6E4D",
+      "cid": "brown_sugar"
+  },
+  {
+      "cg": "Earth",
+      "rg": "c",
+      "r": 10,
+      "color": "Champagne Papi",
+      "hex": "#F1DDCF",
+      "cid": "champagne_papi"
+  },
+  {
+      "cg": "Earth",
+      "rg": "c",
+      "r": 10,
+      "color": "Cinereous",
+      "hex": "#98817B",
+      "cid": "cinereous"
+  },
+  {
+      "cg": "Earth",
+      "rg": "c",
+      "r": 10,
+      "color": "Copper Penny",
+      "hex": "#AD6F69",
+      "cid": "copper_penny"
+  },
+  {
+      "cg": "Earth",
+      "rg": "c",
+      "r": 10,
+      "color": "Coyote Brown",
+      "hex": "#81613C",
+      "cid": "coyote_brown"
+  },
+  {
+      "cg": "Earth",
+      "rg": "c",
+      "r": 10,
+      "color": "Dark Lava",
+      "hex": "#483C32",
+      "cid": "dark_lava"
+  },
+  {
+      "cg": "Earth",
+      "rg": "c",
+      "r": 10,
+      "color": "Deep Taupe",
+      "hex": "#7E5E60",
+      "cid": "deep_taupe"
+  },
+  {
+      "cg": "Earth",
+      "rg": "c",
+      "r": 10,
+      "color": "Field Drab",
+      "hex": "#6C541E",
+      "cid": "field_drab"
+  },
+  {
+      "cg": "Earth",
+      "rg": "c",
+      "r": 10,
+      "color": "Sienna",
+      "hex": "#3C1414",
+      "cid": "sienna"
+  },
+  {
+      "cg": "Earth",
+      "rg": "c",
+      "r": 10,
+      "color": "Taupe",
+      "hex": "#715C56",
+      "cid": "taupe"
+  },
+  {
+      "cg": "Wild",
+      "rg": "s",
+      "r": 5,
+      "color": "Gainsboro",
+      "hex": "#0048BA",
+      "cid": "gainsboro"
+  },
+  {
+      "cg": "Wild",
+      "rg": "r",
+      "r": 7,
+      "color": "Chartreuse",
+      "hex": "#7FFF00",
+      "cid": "chartreuse"
+  },
+  {
+      "cg": "Wild",
+      "rg": "r",
+      "r": 7,
+      "color": "Sir Aquamarine",
+      "hex": "#7FFFD4",
+      "cid": "sir_aquamarine"
+  },
+  {
+      "cg": "Wild",
+      "rg": "c",
+      "r": 9,
+      "color": "AO",
+      "hex": "#008000",
+      "cid": "ao"
+  },
+  {
+      "cg": "Wild",
+      "rg": "c",
+      "r": 10,
+      "color": "Feldgrau",
+      "hex": "#4D5D53",
+      "cid": "feldgrau"
+  },
+  {
+      "cg": "Wild",
+      "rg": "c",
+      "r": 10,
+      "color": "Cal Poly Pomona",
+      "hex": "#1E4D2B",
+      "cid": "cal_poly_pomona"
+  },
+  {
+      "cg": "Wild",
+      "rg": "c",
+      "r": 10,
+      "color": "Caribbean Green",
+      "hex": "#00CC99",
+      "cid": "caribbean_green"
+  },
+  {
+      "cg": "Wild",
+      "rg": "c",
+      "r": 10,
+      "color": "Dark Moss",
+      "hex": "#4A5D23",
+      "cid": "dark_moss"
+  },
+  {
+      "cg": "Wild",
+      "rg": "c",
+      "r": 10,
+      "color": "Dartmouth Green",
+      "hex": "#00703C",
+      "cid": "dartmouth_green"
+  },
+  {
+      "cg": "Wild",
+      "rg": "c",
+      "r": 10,
+      "color": "Space Sparkle",
+      "hex": "#4A646C",
+      "cid": "space_sparkle"
+  },
+  {
+      "cg": "Moon",
+      "rg": "s",
+      "r": 4,
+      "color": "Slate Gray",
+      "hex": null,
+      "cid": "slate_gray"
+  },
+  {
+      "cg": "Moon",
+      "rg": "s",
+      "r": 4,
+      "color": "Stronghold Ivory",
+      "hex": "#CDCDC1",
+      "cid": "stronghold_ivory"
+  },
+  {
+      "cg": "Moon",
+      "rg": "s",
+      "r": 6,
+      "color": "Arctic Snow",
+      "hex": "#FFFAFA",
+      "cid": "arctic_snow"
+  },
+  {
+      "cg": "Moon",
+      "rg": "r",
+      "r": 7,
+      "color": "Ghost White",
+      "hex": "#FFFFFF",
+      "cid": "ghost_white"
+  },
+  {
+      "cg": "Moon",
+      "rg": "r",
+      "r": 7,
+      "color": "White Smoke",
+      "hex": "#F5F5F5",
+      "cid": "white_smoke"
+  },
+  {
+      "cg": "Moon",
+      "rg": "c",
+      "r": 9,
+      "color": "Anti-Flash White",
+      "hex": "#F2F3F4",
+      "cid": "anti-flash_white"
+  },
+  {
+      "cg": "Moon",
+      "rg": "c",
+      "r": 9,
+      "color": "Antique White",
+      "hex": "#FAEBD7",
+      "cid": "antique_white"
+  },
+  {
+      "cg": "Moon",
+      "rg": "c",
+      "r": 9,
+      "color": "Battle Horse Gray",
+      "hex": "#848482",
+      "cid": "battle_horse_gray"
+  },
+  {
+      "cg": "Moon",
+      "rg": "c",
+      "r": 10,
+      "color": "Midnight Black",
+      "hex": "#000000",
+      "cid": "midnight_black"
+  },
+  {
+      "cg": "Moon",
+      "rg": "c",
+      "r": 10,
+      "color": "Alabaster",
+      "hex": "#F2F0E6",
+      "cid": "alabaster"
+  },
+  {
+      "cg": "Moon",
+      "rg": "c",
+      "r": 10,
+      "color": "Black Chocolate",
+      "hex": "#1B1811",
+      "cid": "black_chocolate"
+  },
+  {
+      "cg": "Moon",
+      "rg": "c",
+      "r": 10,
+      "color": "Shadow Fighter",
+      "hex": "#BFAFB2",
+      "cid": "shadow_fighter"
+  },
+  {
+      "cg": "Fiery",
+      "rg": "s",
+      "r": 5,
+      "color": "Peach Puff",
+      "hex": "#FFDAB9",
+      "cid": "peach_puff"
+  },
+  {
+      "cg": "Fiery",
+      "rg": "r",
+      "r": 7,
+      "color": "Coral Wave",
+      "hex": "#FF7F50",
+      "cid": "coral_wave"
+  },
+  {
+      "cg": "Fiery",
+      "rg": "r",
+      "r": 8,
+      "color": "Firebrick",
+      "hex": "#B22222",
+      "cid": "firebrick"
+  },
+  {
+      "cg": "Fiery",
+      "rg": "c",
+      "r": 9,
+      "color": "Alizarin Crimson",
+      "hex": "#E32636",
+      "cid": "alizarin_crimson"
+  },
+  {
+      "cg": "Fiery",
+      "rg": "c",
+      "r": 9,
+      "color": "Atomic Tangerine",
+      "hex": "#FF9966",
+      "cid": "atomic_tangerine"
+  },
+  {
+      "cg": "Fiery",
+      "rg": "c",
+      "r": 9,
+      "color": "Big Dip O’Ruby",
+      "hex": "#9C2542",
+      "cid": "big_dip_o’ruby"
+  },
+  {
+      "cg": "Fiery",
+      "rg": "c",
+      "r": 9,
+      "color": "Bittersweet Shimmer",
+      "hex": "#BF4F51",
+      "cid": "bittersweet_shimmer"
+  },
+  {
+      "cg": "Fiery",
+      "rg": "c",
+      "r": 10,
+      "color": "Colombo Spice",
+      "hex": "#FF3800",
+      "cid": "colombo_spice"
+  },
+  {
+      "cg": "Fiery",
+      "rg": "c",
+      "r": 10,
+      "color": "Burnt Umber",
+      "hex": "#8A3324",
+      "cid": "burnt_umber"
+  },
+  {
+      "cg": "Fiery",
+      "rg": "c",
+      "r": 10,
+      "color": "Crimson Tide",
+      "hex": "#DC143C",
+      "cid": "crimson_tide"
+  },
+  {
+      "cg": "Fiery",
+      "rg": "c",
+      "r": 10,
+      "color": "English Vermillion",
+      "hex": "#CC474B",
+      "cid": "english_vermillion"
+  },
+  {
+      "cg": "Fiery",
+      "rg": "c",
+      "r": 10,
+      "color": "Fuzzy Wuzzy",
+      "hex": "#CC6666",
+      "cid": "fuzzy_wuzzy"
+  },
+  {
+      "cg": "Fiery",
+      "rg": "c",
+      "r": 10,
+      "color": "Burnt Sienna",
+      "hex": "#E97451",
+      "cid": "burnt_sienna"
+  },
+  {
+      "cg": "Fiery",
+      "rg": "c",
+      "r": 10,
+      "color": "Cinnabar",
+      "hex": "#E34234",
+      "cid": "cinnabar"
+  },
+  {
+      "cg": "Fiery",
+      "rg": "c",
+      "r": 10,
+      "color": "Fire Opal",
+      "hex": "#E95C4B",
+      "cid": "fire_opal"
+  },
+  {
+      "cg": "Classic",
+      "rg": "s",
+      "r": 5,
+      "color": "Cornsilk",
+      "hex": "#FFF8DC",
+      "cid": "cornsilk"
+  },
+  {
+      "cg": "Classic",
+      "rg": "r",
+      "r": 7,
+      "color": "Golden Rod",
+      "hex": "#EEE8AA",
+      "cid": "golden_rod"
+  },
+  {
+      "cg": "Classic",
+      "rg": "r",
+      "r": 8,
+      "color": "Burlywood",
+      "hex": "#DEB887",
+      "cid": "burlywood"
+  },
+  {
+      "cg": "Classic",
+      "rg": "c",
+      "r": 9,
+      "color": "Arylide Yellow",
+      "hex": "#E9D66B",
+      "cid": "arylide_yellow"
+  },
+  {
+      "cg": "Classic",
+      "rg": "c",
+      "r": 9,
+      "color": "Banana Mania",
+      "hex": "#FAE7B5",
+      "cid": "banana_mania"
+  },
+  {
+      "cg": "Classic",
+      "rg": "c",
+      "r": 10,
+      "color": "Buff Gold",
+      "hex": "#F0DC82",
+      "cid": "buff_gold"
+  },
+  {
+      "cg": "Classic",
+      "rg": "c",
+      "r": 10,
+      "color": "Café Au Lait",
+      "hex": "#A67B5B",
+      "cid": "café_au_lait"
+  },
+  {
+      "cg": "Classic",
+      "rg": "c",
+      "r": 10,
+      "color": "Chrome Yellow",
+      "hex": "#FFA700",
+      "cid": "chrome_yellow"
+  },
+  {
+      "cg": "Classic",
+      "rg": "c",
+      "r": 10,
+      "color": "Cosmic Latte",
+      "hex": "#FFF8E7",
+      "cid": "cosmic_latte"
+  },
+  {
+      "cg": "Classic",
+      "rg": "c",
+      "r": 10,
+      "color": "Desert Sand",
+      "hex": "#EDC9AF",
+      "cid": "desert_sand"
+  },
+  {
+      "cg": "Classic",
+      "rg": "c",
+      "r": 10,
+      "color": "Fawn",
+      "hex": "#E5AA70",
+      "cid": "fawn"
+  },
+  {
+      "cg": "Classic",
+      "rg": "c",
+      "r": 10,
+      "color": "Flex",
+      "hex": "#EEDC82",
+      "cid": "flex"
+  },
+  {
+      "cg": "Classic",
+      "rg": "c",
+      "r": 10,
+      "color": "Hairy Canary",
+      "hex": "#FFFF99",
+      "cid": "hairy_canary"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "s",
+      "r": 5,
+      "color": "Papaya Whip",
+      "hex": "#FFEFD5",
+      "cid": "papaya_whip"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "r",
+      "r": 7,
+      "color": "Misty Rose",
+      "hex": "#FFE4E1",
+      "cid": "misty_rose"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "r",
+      "r": 7,
+      "color": "Pale Violet",
+      "hex": "#DB7093",
+      "cid": "pale_violet"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 9,
+      "color": "Mystic Maroon",
+      "hex": "#B03060",
+      "cid": "mystic_maroon"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 9,
+      "color": "Oval Orchid",
+      "hex": "#DA70D6",
+      "cid": "oval_orchid"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 9,
+      "color": "Thistle",
+      "hex": "#D8BFD8",
+      "cid": "thistle"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 10,
+      "color": "Amethyst",
+      "hex": "#9966CC",
+      "cid": "amethyst"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 10,
+      "color": "Baker-Miller Pink",
+      "hex": "#FF91AF",
+      "cid": "baker-miller_pink"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 10,
+      "color": "Byzantine",
+      "hex": "#BD33A4",
+      "cid": "byzantine"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 10,
+      "color": "Byzantium",
+      "hex": "#702963",
+      "cid": "byzantium"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 10,
+      "color": "China Pink",
+      "hex": "#DE6FA1",
+      "cid": "china_pink"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 10,
+      "color": "China Rose",
+      "hex": "#A8516E",
+      "cid": "china_rose"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 10,
+      "color": "Cinnamon Satin",
+      "hex": "#CD607E",
+      "cid": "cinnamon_satin"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 10,
+      "color": "Cotton Candy",
+      "hex": "#FFBCD9",
+      "cid": "cotton_candy"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 10,
+      "color": "Cyclamen",
+      "hex": "#F56FA1",
+      "cid": "cyclamen"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 10,
+      "color": "Dark Byzantium",
+      "hex": "#5D3954",
+      "cid": "dark_byzantium"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 10,
+      "color": "Destiny",
+      "hex": "#872657",
+      "cid": "destiny"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 10,
+      "color": "Electric Violet",
+      "hex": "#8F00FF",
+      "cid": "electric_violet"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 10,
+      "color": "Eminence",
+      "hex": "#6C3082",
+      "cid": "eminence"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 10,
+      "color": "Fandango",
+      "hex": "#B53389",
+      "cid": "fandango"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 10,
+      "color": "Fiery Rose",
+      "hex": "#FF5470",
+      "cid": "fiery_rose"
+  },
+  {
+      "cg": "Mystical",
+      "rg": "c",
+      "r": 10,
+      "color": "Suave Mauve",
+      "hex": "#D473D4",
+      "cid": "suave_mauve"
+  }
+]
