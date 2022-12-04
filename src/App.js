@@ -17,6 +17,7 @@ import Layout from "./layout/Layout.js";
 import { AnimatePresence } from "framer-motion";
 import { jparse, set_path } from "./utils/utils.js";
 import Home from "./views/Home.js";
+import HorseStatsPage from "./views/HorseStatsPage.js";
 
 export const backend = // `https://bszedapi.stackednaks.com`;
   true && process.env.NODE_ENV == "development"
@@ -62,7 +63,16 @@ function App() {
     update_user();
   }, [ud]);
 
-  const appcon = { appdata, set_appdata, fet_user, update_user, searchp };
+  const appcon = {
+    history,
+    location,
+    appdata,
+    set_appdata,
+    fet_user,
+    update_user,
+    searchp,
+    psearch: searchp,
+  };
 
   const logout = () => {
     set_path(appdata, set_appdata, "user", null);
@@ -81,6 +91,12 @@ function App() {
             <Layout>
               <AnimatePresence>
                 <Routes location={location} key={location.key}>
+                  <Route
+                    exact
+                    key="/progress/:hid"
+                    path="/progress/:hid"
+                    element={<HorseStatsPage />}
+                  />
                   <Route exact key="/" path="/" element={<Home />} />
                 </Routes>
               </AnimatePresence>
