@@ -101,9 +101,49 @@ const HStatsView = () => {
         <div className="w-[50rem]">
           <SpeeedsChart chart_data={distdata} />
           <PossGainChart possible_gain={compdata?.possible_gain} />
+          <AvgPosChart chart_data={distdata} />
         </div>
       </div>
     </div>
+  );
+};
+
+const AvgPosChart = ({ chart_data }) => {
+  return (
+    <AreaChart
+      width={800}
+      height={400}
+      data={chart_data}
+      margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+    >
+      <defs>
+        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="5%" stopColor="#8884d8" stopOpacity={0.6} />
+          <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+        </linearGradient>
+      </defs>
+      <XAxis
+        tickFormatter={(tickItem) => moment(tickItem).format("MM/DD")}
+        dataKey="date"
+        tickCount={chart_data.length}
+      />
+      <YAxis
+        tickCount={24}
+        tickFormatter={(tickItem) => `#${dec(tickItem, 0)}`}
+        // domain={["dataMin", "dataMax + 1"]}
+        domain={[0, 12]}
+      />
+      <CartesianGrid strokeDasharray="10 10" opacity={0.2} />
+      <Tooltip content={<CustomPosToolTip />} />
+      {/* <Tooltip /> */}
+      <Area
+        type="monotone"
+        dataKey="avg_place"
+        stroke="#8884d8"
+        fillOpacity={1}
+        fill="url(#colorUv)"
+      />
+    </AreaChart>
   );
 };
 
@@ -137,7 +177,7 @@ const SpeeedsChart = ({ chart_data }) => {
         domain={[58, 65]}
       />
       <CartesianGrid strokeDasharray="10 10" opacity={0.2} />
-      <Tooltip content={<CustomToolTip />} />
+      <Tooltip content={<CustomSpeedToolTip />} />
       <Area
         type="monotone"
         dataKey="mx_sp"
@@ -210,7 +250,7 @@ const PossGainChart = ({ possible_gain }) => {
   );
 };
 
-const CustomToolTip = ({ active, payload, label }) => {
+const CustomSpeedToolTip = ({ active, payload, label }) => {
   if (!active) return;
   let row = getv(payload, "0.payload");
   if (_.isEmpty(row)) return <></>;
@@ -226,6 +266,24 @@ const CustomToolTip = ({ active, payload, label }) => {
         <tr style={{ color: cmap["med_sp"] }}>
           <td>Median Speed</td>
           <td>{_.isNaN(row.med_sp) ? "na" : dec(row.med_sp, 2)}</td>
+        </tr>
+      </table>
+    </div>
+  );
+};
+
+const CustomPosToolTip = ({ active, payload, label }) => {
+  if (!active) return;
+  let row = getv(payload, "0.payload");
+  if (_.isEmpty(row)) return <></>;
+  const cmap = _.chain(payload).keyBy("name").mapValues("color").value();
+  return (
+    <div className="w-[15rem] h-[5rem] bg-dark/90">
+      <p className="text-center">{moment(row.date).format("DD-MMM-YY")}</p>
+      <table className="def_table">
+        <tr style={{ color: cmap["avg_place"] }}>
+          <td>Avg Place</td>
+          <td>{_.isNaN(row.avg_place) ? "na" : dec(row.avg_place, 2)}</td>
         </tr>
       </table>
     </div>
