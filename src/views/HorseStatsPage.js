@@ -6,7 +6,7 @@ import { useAppContext } from "../App.js";
 import { useQueries } from "react-query";
 import { q_hdata_dur } from "../utils/queries.js";
 import { useMemo } from "react";
-import { dec, getv, iso, jstr } from "../utils/utils.js";
+import { dec, decp, getv, iso, jstr } from "../utils/utils.js";
 import {
   Area,
   AreaChart,
@@ -202,7 +202,9 @@ const PossGainChart = ({ possible_gain }) => {
           <Doughnut width={500} options={{}} data={data} />
         </div>
       </div>
-      <p className="text-left text-xl font-bold italic">Possible Gain</p>
+      <p className="text-center text-xl font-bold italic">
+        Possible Gain {decp(possible_gain, 1)}
+      </p>
     </div>
   );
 };
