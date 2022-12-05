@@ -11,13 +11,14 @@ import {
   Area,
   AreaChart,
   CartesianGrid,
+  ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
 import _ from "lodash";
 import moment from "moment";
-import { Tag, ToolTip } from "../components/comps.js";
+import { Card, Tag, ToolTip } from "../components/comps.js";
 import { twMerge } from "tailwind-merge";
 import { compile_ddata } from "../utils/progression_logic.js";
 import { Doughnut } from "react-chartjs-2";
@@ -73,10 +74,12 @@ const HStatsView = () => {
     hcon.ndays
   );
 
+  const ccn = `w-full p-4 rounded-sm bg-lig mx-auto`;
+
   return (
-    <div className="w-max p-4 rounded-sm bg-lig mx-auto">
+    <div className="px-4">
       <div className="flex flex-row justify-center items-start gap-4">
-        <div className="grid grid-cols-1">
+        <div className="grid grid-cols-5">
           {dists.map((d) => {
             return (
               <span
@@ -98,11 +101,19 @@ const HStatsView = () => {
             );
           })}
         </div>
-        <div className="w-[50rem]">
+      </div>
+      <div className="max-w-[100vw] grid xs:grid-cols-1 md:grid-cols-2 gap-4 w-full">
+        <Card className={ccn}>
+          <p className="text-center text-xl italic bold">Speed</p>
           <SpeeedsChart chart_data={distdata} />
-          <PossGainChart possible_gain={compdata?.possible_gain} />
+        </Card>
+        <Card className={ccn}>
+          <p className="text-center text-xl italic bold">Finish Distro</p>
           <AvgPosChart chart_data={distdata} />
-        </div>
+        </Card>
+        <Card className={ccn}>
+          <PossGainChart possible_gain={compdata?.possible_gain} />
+        </Card>
       </div>
     </div>
   );
@@ -110,89 +121,93 @@ const HStatsView = () => {
 
 const AvgPosChart = ({ chart_data }) => {
   return (
-    <AreaChart
-      width={800}
-      height={400}
-      data={chart_data}
-      margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-    >
-      <defs>
-        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="5%" stopColor="#8884d8" stopOpacity={0.6} />
-          <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
-        </linearGradient>
-      </defs>
-      <XAxis
-        tickFormatter={(tickItem) => moment(tickItem).format("MM/DD")}
-        dataKey="date"
-        tickCount={chart_data.length}
-      />
-      <YAxis
-        tickCount={24}
-        tickFormatter={(tickItem) => `#${dec(tickItem, 0)}`}
-        // domain={["dataMin", "dataMax + 1"]}
-        domain={[0, 12]}
-      />
-      <CartesianGrid strokeDasharray="10 10" opacity={0.2} />
-      <Tooltip content={<CustomPosToolTip />} />
-      {/* <Tooltip /> */}
-      <Area
-        type="monotone"
-        dataKey="avg_place"
-        stroke="#8884d8"
-        fillOpacity={1}
-        fill="url(#colorUv)"
-      />
-    </AreaChart>
+    <ResponsiveContainer width={"100%"} height={400}>
+      <AreaChart
+        // width={800}
+        // height={400}
+        data={chart_data}
+        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+      >
+        <defs>
+          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="5%" stopColor="#8884d8" stopOpacity={0.6} />
+            <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+          </linearGradient>
+        </defs>
+        <XAxis
+          tickFormatter={(tickItem) => moment(tickItem).format("MM/DD")}
+          dataKey="date"
+          tickCount={chart_data.length}
+        />
+        <YAxis
+          tickCount={24}
+          tickFormatter={(tickItem) => `#${dec(tickItem, 0)}`}
+          // domain={["dataMin", "dataMax + 1"]}
+          domain={[0, 12]}
+        />
+        <CartesianGrid strokeDasharray="10 10" opacity={0.2} />
+        <Tooltip content={<CustomPosToolTip />} />
+        {/* <Tooltip /> */}
+        <Area
+          type="monotone"
+          dataKey="avg_place"
+          stroke="#8884d8"
+          fillOpacity={1}
+          fill="url(#colorUv)"
+        />
+      </AreaChart>
+    </ResponsiveContainer>
   );
 };
 
 const SpeeedsChart = ({ chart_data }) => {
   return (
-    <AreaChart
-      width={800}
-      height={400}
-      data={chart_data}
-      margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-    >
-      <defs>
-        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="5%" stopColor="#8884d8" stopOpacity={0.6} />
-          <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
-        </linearGradient>
-        <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.6} />
-          <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
-        </linearGradient>
-      </defs>
-      <XAxis
-        tickFormatter={(tickItem) => moment(tickItem).format("MM/DD")}
-        dataKey="date"
-        tickCount={chart_data.length}
-      />
-      <YAxis
-        tickCount={100}
-        tickFormatter={(tickItem) => dec(tickItem, 2)}
-        // domain={["dataMin", "dataMax + 1"]}
-        domain={[58, 65]}
-      />
-      <CartesianGrid strokeDasharray="10 10" opacity={0.2} />
-      <Tooltip content={<CustomSpeedToolTip />} />
-      <Area
-        type="monotone"
-        dataKey="mx_sp"
-        stroke="#8884d8"
-        fillOpacity={1}
-        fill="url(#colorUv)"
-      />
-      <Area
-        type="monotone"
-        dataKey="med_sp"
-        stroke="#82ca9d"
-        fillOpacity={1}
-        fill="url(#colorPv)"
-      />
-    </AreaChart>
+    <ResponsiveContainer width={"100%"} height={400}>
+      <AreaChart
+        // width={800}
+        // height={400}
+        data={chart_data}
+        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+      >
+        <defs>
+          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="5%" stopColor="#8884d8" stopOpacity={0.6} />
+            <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+          </linearGradient>
+          <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.6} />
+            <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
+          </linearGradient>
+        </defs>
+        <XAxis
+          tickFormatter={(tickItem) => moment(tickItem).format("MM/DD")}
+          dataKey="date"
+          tickCount={chart_data.length}
+        />
+        <YAxis
+          tickCount={100}
+          tickFormatter={(tickItem) => dec(tickItem, 2)}
+          // domain={["dataMin", "dataMax + 1"]}
+          domain={[58, 65]}
+        />
+        <CartesianGrid strokeDasharray="10 10" opacity={0.2} />
+        <Tooltip content={<CustomSpeedToolTip />} />
+        <Area
+          type="monotone"
+          dataKey="mx_sp"
+          stroke="#8884d8"
+          fillOpacity={1}
+          fill="url(#colorUv)"
+        />
+        <Area
+          type="monotone"
+          dataKey="med_sp"
+          stroke="#82ca9d"
+          fillOpacity={1}
+          fill="url(#colorPv)"
+        />
+      </AreaChart>
+    </ResponsiveContainer>
   );
 };
 
