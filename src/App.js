@@ -18,6 +18,10 @@ import { AnimatePresence } from "framer-motion";
 import { jparse, set_path } from "./utils/utils.js";
 import Home from "./views/Home.js";
 import HorseStatsPage from "./views/HorseStatsPage.js";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
+
 
 export const backend = // `https://bszedapi.stackednaks.com`;
   true && process.env.NODE_ENV == "development"

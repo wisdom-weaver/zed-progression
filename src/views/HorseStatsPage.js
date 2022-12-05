@@ -19,7 +19,10 @@ import _ from "lodash";
 import moment from "moment";
 import { Tag, ToolTip } from "../components/comps.js";
 import { twMerge } from "tailwind-merge";
+import { compile_ddata } from "../utils/progression_logic.js";
+import { Doughnut } from "react-chartjs-2";
 
+const ndays = 30;
 const HStatsContext = createContext();
 const useHStatsContext = () => useContext(HStatsContext);
 
@@ -31,20 +34,23 @@ function HorseStatsPage() {
   }, [params]);
 
   const ed = iso().slice(0, 10) + "T00:00:00Z";
-  const st = moment(ed).add(-30, "days").toISOString();
+  const st = moment(ed).add(-ndays, "days").toISOString();
 
   const [qhdata_dur] = useQueries([q_hdata_dur({ hid, st, ed })]);
 
   const hcon = {
     hid,
+    ndays,
     st,
     ed,
     qhdata_dur,
   };
   return (
-    <HStatsContext.Provider value={hcon}>
-      {qhdata_dur.status == "success" && <HStatsView />}
-    </HStatsContext.Provider>
+    <div className="page">
+      <HStatsContext.Provider value={hcon}>
+        {qhdata_dur.status == "success" && <HStatsView />}
+      </HStatsContext.Provider>
+    </div>
   );
 }
 
@@ -53,14 +59,18 @@ const dists = ["ALL", 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600];
 const HStatsView = () => {
   const hcon = useHStatsContext();
   const d = getv(hcon, "qhdata_dur.data");
-  useEffect(() => {
-    console.log("data", d);
-  }, [d]);
-
   const [dist, set_dist] = useState("ALL");
-  const distdata = _.map(d, (e) => {
-    return { hid: e.hid, date: e.date, ...getv(e, `${dist}`) };
-  });
+  const distdata = useMemo(() => {
+    return _.map(d, (e) => {
+      return { hid: e.hid, date: e.date, ...getv(e, `${dist}`) };
+    });
+  }, [dist]);
+
+  const compdata = useMemo(() => {
+    let o = compile_ddata(distdata, hcon.ndays);
+    console.log(o);
+    return o;
+  }, [jstr(distdata)]);
 
   return (
     <div className="w-max p-4 rounded-sm bg-lig mx-auto">
@@ -89,6 +99,7 @@ const HStatsView = () => {
         </div>
         <div className="w-[50rem]">
           <SpeeedsChart chart_data={distdata} />
+          <PossGainChart possible_gain={compdata?.possible_gain} />
         </div>
       </div>
     </div>
@@ -141,6 +152,58 @@ const SpeeedsChart = ({ chart_data }) => {
         fill="url(#colorPv)"
       />
     </AreaChart>
+  );
+};
+
+const PossGainChart = ({ possible_gain }) => {
+  const rot = possible_gain * 180 - 90;
+  console.log({ possible_gain, rot });
+  const data = {
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [30, 60, 180, 90],
+        backgroundColor: [
+          "rgba(255, 206, 86, 0.4)", // yellow
+          "rgba(75, 192, 192, 0.4)", // green
+          "rgba(54, 162, 235, 0)", // blue
+          "rgba(255, 99, 132, 0.4)", // red
+          "rgba(153, 102, 255, 0.4)", // purple
+          "rgba(255, 159, 64, 0.4)", // orange
+        ],
+        borderColor: [
+          "rgba(255, 206, 86, 1)", // yellow
+          "rgba(75, 192, 192, 1)", // green
+          "rgba(54, 162, 235, 0)", // blue
+          "rgba(255, 99, 132, 1)", // red
+          "rgba(153, 102, 255, 1)", // purple
+          "rgba(255, 159, 64, 1)", // orange
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+  return (
+    <div className="">
+      <div className="w-[500px] max-h-[250px] overflow-hidden mx-auto relative">
+        <div className="">
+          <div
+            style={{
+              transform: `rotate(${rot}deg) translate(-50% , -5px)`,
+              transformOrigin: `0% 100%`,
+            }}
+            className={twMerge(
+              `needle`,
+              `h-[200px] w-[10px] bg-black border border-white rounded-md `,
+              `absolute bottom-[7px] left-[50%]`
+              // `[transform-origin:100%_100%]`
+            )}
+          ></div>
+          <Doughnut width={500} options={{}} data={data} />
+        </div>
+      </div>
+      <p className="text-left text-xl font-bold italic">Possible Gain</p>
+    </div>
   );
 };
 
