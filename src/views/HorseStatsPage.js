@@ -120,6 +120,13 @@ const HStatsView = () => {
 };
 
 const AvgPosChart = ({ chart_data }) => {
+  chart_data = _.map(chart_data, (e) => {
+    return {
+      ...e,
+      avg_place2:
+        parseInt(e.avg_place) > 0 ? Math.abs(12 - e.avg_place + 1) : 0,
+    };
+  });
   return (
     <ResponsiveContainer width={"100%"} height={400}>
       <AreaChart
@@ -141,16 +148,16 @@ const AvgPosChart = ({ chart_data }) => {
         />
         <YAxis
           tickCount={24}
-          tickFormatter={(tickItem) => `#${dec(tickItem, 0)}`}
+          tickFormatter={(tickItem) => `#${dec(12 - tickItem + 1, 0)}`}
           // domain={["dataMin", "dataMax + 1"]}
-          domain={[0, 12]}
+          domain={[1, 12]}
         />
         <CartesianGrid strokeDasharray="10 10" opacity={0.2} />
         <Tooltip content={<CustomPosToolTip />} />
         {/* <Tooltip /> */}
         <Area
           type="monotone"
-          dataKey="avg_place"
+          dataKey="avg_place2"
           stroke="#8884d8"
           fillOpacity={1}
           fill="url(#colorUv)"
