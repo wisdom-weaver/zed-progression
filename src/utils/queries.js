@@ -18,7 +18,7 @@ import qs from "query-string";
 import { useEffect } from "react";
 
 const backend = // `https://bszedapi.stackednaks.com`;
-  true && process.env.NODE_ENV == "development"
+  false && process.env.NODE_ENV == "development"
     ? `http://localhost:3005`
     : `https://bszedapi.stackednaks.com`;
 const base = `${backend}/progression`;

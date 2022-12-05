@@ -66,11 +66,12 @@ const HStatsView = () => {
     });
   }, [dist]);
 
-  const compdata = useMemo(() => {
-    let o = compile_ddata(distdata, hcon.ndays);
-    console.log(o);
-    return o;
-  }, [jstr(distdata)]);
+  const compdata = compile_ddata(
+    _.map(d, (e) => {
+      return { hid: e.hid, date: e.date, ...getv(e, `${"ALL"}`) };
+    }) || [],
+    hcon.ndays
+  );
 
   return (
     <div className="w-max p-4 rounded-sm bg-lig mx-auto">
