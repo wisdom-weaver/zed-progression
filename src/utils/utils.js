@@ -244,3 +244,5 @@ export const check_eth_address = (s) => {
   if (_.isNil(s) || s == "") return null;
   return s.match(`^0x[a-fA-F0-9]{40}$`);
 };
+
+export const nils = (s) => (_.isNil(s) || s == "" ? true : false);

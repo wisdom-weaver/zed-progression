@@ -6,7 +6,7 @@ import { useAppContext } from "../App.js";
 import { useQueries } from "react-query";
 import { q_hdata_dur } from "../utils/queries.js";
 import { useMemo } from "react";
-import { dec, decp, getv, iso, jstr } from "../utils/utils.js";
+import { dec, decp, getv, iso, jstr, nils } from "../utils/utils.js";
 import {
   Area,
   AreaChart,
@@ -168,6 +168,12 @@ const AvgPosChart = ({ chart_data }) => {
 };
 
 const SpeeedsChart = ({ chart_data }) => {
+  let [chart_mi, chart_mx] = [58, 65];
+  chart_data = chart_data.map((e) => {
+    let mx_sp_val = e.mx_sp == null ? chart_mi : e.mx_sp;
+    let med_sp_val = e.med_sp == null ? chart_mi : e.med_sp;
+    return { ...e, mx_sp_val, med_sp_val };
+  });
   return (
     <ResponsiveContainer width={"100%"} height={400}>
       <AreaChart
@@ -201,14 +207,14 @@ const SpeeedsChart = ({ chart_data }) => {
         <Tooltip content={<CustomSpeedToolTip />} />
         <Area
           type="monotone"
-          dataKey="mx_sp"
+          dataKey="mx_sp_val"
           stroke="#8884d8"
           fillOpacity={1}
           fill="url(#colorUv)"
         />
         <Area
           type="monotone"
-          dataKey="med_sp"
+          dataKey="med_sp_val"
           stroke="#82ca9d"
           fillOpacity={1}
           fill="url(#colorPv)"
@@ -281,13 +287,13 @@ const CustomSpeedToolTip = ({ active, payload, label }) => {
     <div className="w-[15rem] h-[5rem] bg-dark/90">
       <p className="text-center">{moment(row.date).format("DD-MMM-YY")}</p>
       <table className="def_table">
-        <tr style={{ color: cmap["mx_sp"] }}>
+        <tr style={{ color: cmap["mx_sp_val"] }}>
           <td>Max Speed</td>
-          <td>{_.isNaN(row.mx_sp) ? "na" : dec(row.mx_sp, 2)}</td>
+          <td>{nils(row.mx_sp) ? "na" : dec(row.mx_sp, 2)}</td>
         </tr>
-        <tr style={{ color: cmap["med_sp"] }}>
+        <tr style={{ color: cmap["med_sp_val"] }}>
           <td>Median Speed</td>
-          <td>{_.isNaN(row.med_sp) ? "na" : dec(row.med_sp, 2)}</td>
+          <td>{nils(row.med_sp) ? "na" : dec(row.med_sp, 2)}</td>
         </tr>
       </table>
     </div>
@@ -303,9 +309,9 @@ const CustomPosToolTip = ({ active, payload, label }) => {
     <div className="w-[15rem] h-[5rem] bg-dark/90">
       <p className="text-center">{moment(row.date).format("DD-MMM-YY")}</p>
       <table className="def_table">
-        <tr style={{ color: cmap["avg_place"] }}>
+        <tr style={{ color: cmap["avg_place2"] }}>
           <td>Avg Place</td>
-          <td>{_.isNaN(row.avg_place) ? "na" : dec(row.avg_place, 2)}</td>
+          <td>{nils(row.avg_place) ? "na" : dec(row.avg_place, 2)}</td>
         </tr>
       </table>
     </div>
